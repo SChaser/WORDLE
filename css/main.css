@@ -3,9 +3,32 @@ header {
   justify-content: center;
   align-items: center;
 }
+.menu-side {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 10px 0 10px;
+}
 
-img {
+.menu-side img {
   width: 40px;
+  cursor: pointer;
+}
+.title {
+  margin: auto;
+  padding-left: 60px;
+  font-size: 50px;
+  font-weight: bold;
+  justify-content: space-between;
+}
+
+.many-icons {
+  display: flex;
+  justify-content: space-between;
+  padding: center;
+}
+.many-icons img {
+  width: 40px;
+  cursor: pointer;
 }
 
 main {
@@ -45,6 +68,7 @@ footer {
   justify-content: center;
   align-items: center;
   gap: 5px;
+  cursor: pointer;
 }
 
 .keyboard-column {
@@ -69,4 +93,9 @@ footer {
   background-color: #d3d6da;
   width: 70px;
   height: 60px;
+}
+
+.keyboard-column-wide img {
+  width: 40px;
+  padding-right: 5px;
 }
