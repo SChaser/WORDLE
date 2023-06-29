@@ -53,6 +53,8 @@ main {
   border: 3px solid #d3d6da;
   width: 60px;
   height: 60px;
+  font-size: 25px;
+  font-weight: bold;
 }
 
 footer {
@@ -72,6 +74,7 @@ footer {
 }
 
 .keyboard-column {
+  font-size: 25px;
   font-weight: bold;
   display: flex;
   justify-content: center;
