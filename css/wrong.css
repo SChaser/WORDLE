@@ -1,0 +1,19 @@
+@keyframes ani {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.wrong {
+  font-weight: bold;
+  position: flex;
+  top: 50%;
+  left: 50%;
+  animation: 2s ani ease-in-out;
+}
