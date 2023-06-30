@@ -1,8 +1,7 @@
-const 정답 = "APPLE";
-
 let index = 0;
 let attempts = 0;
 let timer;
+let keyboard = [];
 
 function appStart() {
   // 맞췄을 때
@@ -50,24 +49,41 @@ function appStart() {
     displayWrong();
     clearInterval(timer);
   };
-  //엔터키 기능
-  const handleEnterKey = () => {
-    let 맞은_갯수 = 0;
-    for (let i = 0; i < 5; i++) {
-      const keyboard = document.querySelector(`.keyboard-column[data-key=']`);
 
+  // 키보드에도 동일하게 정답 표시가 표시 되게 구현
+  function keyboardChange(keyboardword) {
+    let keyboard = document.querySelectorAll(".keyboard-column");
+    for (i = 0; i < 5; i++);
+  }
+
+  //엔터키 기능
+  const handleEnterKey = async () => {
+    let 맞은_갯수 = 0;
+    // 서버에서 정답을 받아오는 코드
+    const 응답 = await fetch("/answer");
+    const 정답 = await 응답.json();
+    키보드_공간 = [];
+    for (let i = 0; i < 5; i++) {
       const block = document.querySelector(
         `.board-column[data-index='${attempts}${i}']`
       );
       const 입력한_글자 = block.innerText;
       const 정답_글자 = 정답[i];
+      const keyboard = document.querySelector(
+        `.keyboard-column[data-key='${입력한_글자}']`
+      );
+      키보드_공간.push(입력한_글자);
+
       if (입력한_글자 === 정답_글자) {
         맞은_갯수 += 1;
         block.style.background = "#6AAA64";
+        keyboard.style.background = "#6AAA64";
       } else if (정답.includes(입력한_글자)) {
         block.style.background = "#C9B458";
+        keyboard.style.background = "#C9B458";
       } else {
         block.style.background = "#787C7E";
+        keyboard.style.background = "#787C7E";
       }
       block.style.color = "white";
     }
@@ -78,8 +94,6 @@ function appStart() {
       Wrong();
     } else nextline();
   };
-
-  // 키보드에도 동일하게 정답 표시가 표시 되게 구현
 
   // 눌렀을 때 소문자를 대문자로 바꿔주는 구간
   const handleKeydown = (e) => {
